@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useForm, SubmitHandler } from "react-hook-form";
 import AuthContext from '../context/AuthContext';
 
@@ -14,11 +14,16 @@ type Inputs = {
 const IndexPage = () => {
 
   const [login, setLogin] = useState(true)
-  const { loginUser } = useContext(AuthContext)
+  const { loginUser, validationCookie } = useContext(AuthContext)
 
   const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => await loginUser(data.email, data.password)
   // await loginUser(data.email, data.password)
+
+  useEffect(() => {
+    validationCookie()
+  }, [])
+  
 
   return (
 

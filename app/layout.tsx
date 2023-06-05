@@ -2,7 +2,8 @@ import NavBar from '../components/layout/NavBar'
 import { AuthProvider } from '../context/AuthProvider'
 import './globals.css'
 import { Inter } from 'next/font/google'
-import React from 'react'
+import React, { useContext } from 'react'
+import AuthContext from '../context/AuthProvider';
 
 
 
@@ -18,6 +19,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
     <html lang="en">
         <head>

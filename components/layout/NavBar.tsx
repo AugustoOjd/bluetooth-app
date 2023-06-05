@@ -6,8 +6,8 @@ import AuthContext from '../../context/AuthContext'
 
 const NavBar = () => {
 
-    const {isLoggedIn, logout} = useContext(AuthContext)
-    console.log(isLoggedIn)
+    const {isLoggedIn, logout, user} = useContext(AuthContext)
+    console.log(user)
 
   return (
 
@@ -31,7 +31,10 @@ const NavBar = () => {
                   <a className="nav-link" href="#">Un Paid</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Payed</a>
+                  <a className="nav-link" href="#">Paid</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">{user as React.ReactNode}</a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" onClick={()=> logout() }>Logout</a>

@@ -9,12 +9,13 @@ export interface IUser {
 
 interface ContextProps {
     isLoggedIn: boolean
-    user?: IUser
+    user?: IUser | string
 
 
     loginUser: (email: string, password: string) => Promise<boolean>
     logout: () => void
     registerUser: (firstName: string, lastName: string, email: string, password: string) => Promise<boolean>
+    validationCookie: ()=>void
 }
 
 
